@@ -1,1 +1,6 @@
-<p>list-cd works!</p>
+<!-- <p>list-cd works!</p> -->
+<div class="list-cd">
+    <ng-container *ngFor="let unCd of listecd">
+        <app-cd *ngIf="unCd.qte > 0" [Cd]="unCd"></app-cd>
+    </ng-container>
+</div>

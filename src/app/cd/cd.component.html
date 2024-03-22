@@ -1,1 +1,11 @@
-<p>cd works!</p>
+<div class="cd-card" [ngClass]="{'cdadded': Cd.estRupture===true}">
+    <h3>{{Cd.titre | uppercase}}</h3>
+    <p>Sortie le : {{Cd.dateDeSortie | date: 'dd/MM/yyyy'}}</p>
+    <p>Auteur / Groupe : {{Cd.auteur}}</p>
+    <p>Prix : {{Cd.prix | currency: 'EUR'}}</p>
+    <p>
+        En stock : <span [ngStyle]="{color:'rgb(0,'+Cd.qte+', 0)'}">{{Cd.qte}}</span>
+        <button (click)="onAddCD()">Ajouter une unité</button>
+    </p>
+    <img [src]="Cd.img" [alt]="Cd.titre">
+</div>
