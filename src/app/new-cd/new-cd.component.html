@@ -1,0 +1,60 @@
+<div class="monForm">
+    <section class="subForm saisieForm">
+        <h2>Nouveau CD</h2>
+        <form [formGroup]="formulaire">
+            <div class="form-group">
+                <label for="titre">Titre</label>
+                <div class="input">
+                    <input type="text" class="form-control" id="titre" formControlName="titre"/>
+                    <div *ngIf="formulaire.get('titre')?.invalid &&
+                                formulaire.get('titre')?.errors &&
+                                (formulaire.get('titre')?.dirty || formulaire.get('titre')?.touched)">
+                        <small class="text-danger" *ngIf="formulaire.get('titre')?.hasError('required')">
+                            Ce champs est requis
+                        </small>
+                        <small class="text-danger" *ngIf="formulaire.get('titre')?.hasError('minLength')">
+                            Ce champs doit comporter au moins 6 caractères
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="auteur">Auteur</label>
+                <input type="text" class="form-control" id="auteur" formControlName="auteur">
+            </div>
+            <div class="form-group">
+                <label for="prix">Prix</label>
+                <input type="number" class="form-control" id="prix" formControlName="prix">
+            </div>
+            <div class="form-group">
+                <label for="img">URL de l'image</label>
+                <input type="text" class="form-control" id="img" formControlName="img">
+            </div>
+            <div class="form-group">
+                <label for="dateDeSortie">Date de sortie</label>
+                <input type="date" class="form-control" id="dateDeSortie" formControlName="dateDeSortie">
+            </div>
+            <div class="form-group">
+                <label for="qte">Quantité</label>
+                <input type="number" class="form-control" id="qte" formControlName="qte">
+            </div>
+            <!-- <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="estRupture" formControlName="estRupture">
+                <label class="form-check-label" for="estRupture">En rupture de stock ?</label>
+            </div> -->
+            <button type="submit" class="btn btn-primary" [disabled]= "formulaire.invalid">Ajouter</button>
+        </form>
+    </section>
+    <section class="subForm visuForm">
+        <h2>Vue du CD</h2>
+        <h4>En cours de création ...</h4>
+        <ng-container *ngIf="!isEmpty(formulaire.value)">
+            <h3>{{currentCD.titre}}</h3>
+            <p><strong>Sortie le :</strong> {{currentCD.dateDeSortie | date: 'dd/MM/yyyy'}}</p>
+            <p><strong>Auteur / Groupe :</strong> {{currentCD.auteur}}</p>
+            <p><strong>Prix :</strong> {{currentCD.prix | currency: 'EUR'}}</p>
+            <p><strong>Quantité :</strong> {{currentCD.qte}}</p>
+            <img [src]="currentCD.img" alt="{{currentCD.titre}}">
+        </ng-container>
+    </section>
+</div>

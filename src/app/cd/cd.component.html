@@ -1,11 +1,21 @@
-<div class="cd-card" [ngClass]="{'cdadded': Cd.estRupture===true}">
-    <h3>{{Cd.titre | uppercase}}</h3>
-    <p>Sortie le : {{Cd.dateDeSortie | date: 'dd/MM/yyyy'}}</p>
-    <p>Auteur / Groupe : {{Cd.auteur}}</p>
-    <p>Prix : {{Cd.prix | currency: 'EUR'}}</p>
-    <p>
-        En stock : <span [ngStyle]="{color:'rgb(0,'+Cd.qte+', 0)'}">{{Cd.qte}}</span>
-        <button (click)="onAddCD()">Ajouter une unité</button>
-    </p>
-    <img [src]="Cd.img" [alt]="Cd.titre">
+<div *ngIf="theCd !== undefined">
+    <div class="cd-card" [ngClass]="{'cdadded': theCd.estRupture===true}">
+        <h3>{{theCd.titre | uppercase}}</h3>
+        <p>Sortie le : {{theCd.dateDeSortie | date: 'dd/MM/yyyy'}}</p>
+        <p>Auteur / Groupe : {{theCd.auteur}}</p>
+        <p>Prix : {{theCd.prix | currency: 'EUR'}}</p>
+        <p class="quantite">
+            <span>En stock : <span [ngStyle]="{color:'rgb(0,'+theCd.qte*2+', 0)'}">{{theCd.qte}}</span></span>
+            <button (click)="onAddCD()">Ajouter une unité</button>
+        </p>
+        <p *ngIf="idCd === undefined">
+            <a class="button" routerLink="/cd/{{theCd.id}}"><button>Voir le détail</button></a>
+        </p>
+        <img [src]="theCd.img" [alt]="theCd.titre">
+    </div>
+</div>
+
+<div *ngIf="theCd === undefined" routerLink="/">
+    <p>Le Cd n'existe pas</p>
+    <button>RETOUR</button>
 </div>
