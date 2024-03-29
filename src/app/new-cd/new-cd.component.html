@@ -42,12 +42,12 @@
                 <input type="checkbox" class="form-check-input" id="estRupture" formControlName="estRupture">
                 <label class="form-check-label" for="estRupture">En rupture de stock ?</label>
             </div> -->
-            <button type="submit" class="btn btn-primary" [disabled]= "formulaire.invalid">Ajouter</button>
+            <button type="submit" class="btn btn-primary" [disabled]= "formulaire.invalid" (click)="addNewCD()">Ajouter</button>
         </form>
     </section>
     <section class="subForm visuForm">
         <h2>Vue du CD</h2>
-        <h4>En cours de création ...</h4>
+        <p>En cours de création ...</p>
         <ng-container *ngIf="!isEmpty(formulaire.value)">
             <h3>{{currentCD.titre}}</h3>
             <p><strong>Sortie le :</strong> {{currentCD.dateDeSortie | date: 'dd/MM/yyyy'}}</p>

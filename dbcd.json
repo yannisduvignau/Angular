@@ -1,0 +1,84 @@
+{
+  "CD": [
+    {
+      "id": "1",
+      "titre": "The DarkSide of the Moon",
+      "auteur": "Pink Floyd",
+      "prix": 10,
+      "img": "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcT9kry1myZTi2dMJ7OtgJjmdT__lImpI-pJ9mdq42Cz8HhIet_ro_Obp6q4xbksBbpT",
+      "dateDeSortie": "1973-03-01T22:00:00.000Z",
+      "qte": 1,
+      "estRupture": false
+    },
+    {
+      "id": "2",
+      "titre": "The DarkSid2 of the Moon",
+      "auteur": "Pink Floyd",
+      "prix": 10,
+      "img": "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcT9kry1myZTi2dMJ7OtgJjmdT__lImpI-pJ9mdq42Cz8HhIet_ro_Obp6q4xbksBbpT",
+      "dateDeSortie": "1973-03-01T22:00:00.000Z",
+      "qte": 1,
+      "estRupture": false
+    },
+    {
+      "id": "3",
+      "titre": "The DarkSid3 of the Moon",
+      "auteur": "Pink Floyd",
+      "prix": 10,
+      "img": "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcT9kry1myZTi2dMJ7OtgJjmdT__lImpI-pJ9mdq42Cz8HhIet_ro_Obp6q4xbksBbpT",
+      "dateDeSortie": "1973-03-01T22:00:00.000Z",
+      "qte": 1,
+      "estRupture": false
+    },
+    {
+      "id": "4",
+      "titre": "The DarkSid4 of the Moon",
+      "auteur": "Pink Floyd",
+      "prix": 10,
+      "img": "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcT9kry1myZTi2dMJ7OtgJjmdT__lImpI-pJ9mdq42Cz8HhIet_ro_Obp6q4xbksBbpT",
+      "dateDeSortie": "1973-03-01T22:00:00.000Z",
+      "qte": 1,
+      "estRupture": false
+    },
+    {
+      "id": "5",
+      "titre": "The DarkSide5 of the Moon",
+      "auteur": "Pink Floyd",
+      "prix": 10,
+      "img": "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcT9kry1myZTi2dMJ7OtgJjmdT__lImpI-pJ9mdq42Cz8HhIet_ro_Obp6q4xbksBbpT",
+      "dateDeSortie": "1973-03-01T22:00:00.000Z",
+      "qte": 1,
+      "estRupture": false
+    },
+    {
+      "id": "6",
+      "titre": null,
+      "auteur": null,
+      "prix": null,
+      "img": null,
+      "dateDeSortie": null,
+      "qte": null,
+      "estRupture": false
+    },
+    {
+      "id": "61",
+      "titre": "POLAK",
+      "auteur": "PLK",
+      "prix": 1,
+      "img": "https://i.discogs.com/RzZP2_76FFrb39TdU5HTj_aSSZuCm9x1sHfIyW9WdIg/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzY2/MTA4LTE2MDc5Mzc1/NzMtNDE2My5tcG8.jpeg",
+      "dateDeSortie": "2024-03-06",
+      "qte": 2,
+      "estRupture": false
+    },
+    {
+      "id": "611",
+      "titre": "Emotif",
+      "auteur": "PLK",
+      "prix": 1,
+      "img": "https://cdns-images.dzcdn.net/images/cover/1f1126ecaf57830ab693d7b3e452ebb2/500x500.jpg",
+      "dateDeSortie": "2024-03-14",
+      "qte": 1,
+      "estRupture": false
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { cd } from '../models/cd.models';
+import { CdsService } from '../services/cds.service';
+import { ActivatedRoute,Router } from '@angular/router';
+
 
 
 @Component({
@@ -14,15 +17,15 @@ export class NewCDComponent implements OnInit{
   currentCD!:cd;
   imageRegex!:RegExp;
 
-  constructor(private formBuilder:FormBuilder){  }
+  constructor(private formBuilder:FormBuilder,private cdService : CdsService, private router: Router){ }
   ngOnInit():void{
     this.imageRegex = RegExp('https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg|webp)$')
 
     this.formulaire = this.formBuilder.group({
-      titre: [null,[Validators.required, Validators.minLength(6)]],
-      auteur: [null,[Validators.required, Validators.minLength(6)]],
-      prix: [null,[Validators.required, Validators.pattern(this.imageRegex)]],
-      img: [null,[Validators.required, Validators.min(0)]],
+      titre: [null,[Validators.required, Validators.minLength(1)]],
+      auteur: [null,[Validators.required, Validators.minLength(1)]],
+      img: [null,[Validators.required, Validators.pattern(this.imageRegex)]],
+      prix: [null,[Validators.required, Validators.min(0)]],
       dateDeSortie: [null,[Validators.required, Validators.min(0)]],
       qte: [null,[Validators.required, Validators.min(0)]],
     },
@@ -41,6 +44,7 @@ export class NewCDComponent implements OnInit{
         estRupture: false,
       }
     });
+    
   }
   isEmpty(formValue: any): boolean {
     for (let key in formValue) {
@@ -51,4 +55,29 @@ export class NewCDComponent implements OnInit{
     return true;
   }
   
+  addNewCD():void{
+    let newCD: cd ={
+      id:0,
+      titre: this.formulaire.get('titre')?.value,
+      auteur: this.formulaire.get('auteur')?.value,
+      prix: this.formulaire.get('prix')?.value,
+      img: this.formulaire.get('img')?.value,
+      dateDeSortie: this.formulaire.get('dateDeSortie')?.value,
+      qte: this.formulaire.get('qte')?.value,
+      estRupture: false
+    }
+
+    this.cdService.addCD(newCD).subscribe({
+      next : cd =>
+      {
+        this.router.navigateByUrl('/catalog');
+      },
+      error : err =>
+      {
+        console.log('Observable ajout CD a émis une erreur :'+err);
+        alert("Désolé le CD n'a pu être ajouté")
+      }
+    });
+    
+  }
 }
